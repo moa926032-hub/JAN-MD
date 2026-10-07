@@ -1,0 +1,28 @@
+{
+  "reaction": "🫦",
+  "reaction_status": "on",
+
+  "group": {
+    "status": "on",
+    "newSubject": "𝐉𝐀𝐍 𝐌𝐃 𓅃",
+    "newDescription": "*𝐉𝐀𝐍 BOT eat the group*🥷\nتعال ي مصفوع اعلمك:\nhttps://whatsapp.com/channel/0029VbAwIeZ7DAWtP59pqx3c\n\n_______\n\nLEADER ➸ 𝐉𝐀𝐍 𝐌𝐃 𓅃\nDEV ➸ 𝗺𝗢 𝗙𝗢𝗥𝗮1𝗢𝗡"
+  },
+
+  "messages": {
+    "status": "on",
+    "mention": "𝐉𝐀𝐍 𝐌𝐃 𓅃",
+    "final": "تعال اعلمك ي تلميذي:\n\n𖠇 𝐉𝐀𝐍 𝐌𝐃 ⓵\n↬ https://whatsapp.com/channel/0029VbAwIeZ7DAWtP59pqx3c"
+  },
+
+  "media": {
+    "status": "on",
+    "image": "image.jpeg"
+  },
+
+  "audio": {
+    "status": "on",
+    "file": "data/source.ogg",
+    "ptt": true,
+    "mimetype": "audio/ogg; codecs=opus"
+  }
+}
