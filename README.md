@@ -22,6 +22,7 @@
 ```bash
 termux-setup-storage
 pkg update -y && pkg upgrade -y
+pkg install nodejs yarn -y
 pkg install git nodejs -y
 git clone https://github.com/moa926032-hub/JAN-MD.git
 cd JAN-MD
