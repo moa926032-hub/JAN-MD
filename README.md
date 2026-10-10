@@ -17,7 +17,6 @@ Termux (Android)
 
 termux-setup-storage
 pkg update -y && pkg upgrade -y
-pkg install nodejs yarn -y
 pkg install git nodejs -y
 git clone https://github.com/moa926032-hub/JAN-MD.git
 cd JAN-MD
@@ -26,9 +25,9 @@ npm start
 
 ---
 
-👤 support
+👤 Support
 
-- Owner: "click" (https://wa.me/201515063273)
+- Owner: "Click here" (https://wa.me/201515063273)
 - Group: "Join here" (https://whatsapp.com/channel/0029VbAwIeZ7DAWtP59pqx3c)
 - Channel: "Join here" (https://whatsapp.com/channel/0029VbAwIeZ7DAWtP59pqx3c)
 
