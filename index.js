@@ -288,7 +288,7 @@ process.on('unhandledRejection', (reason, promise) => {
 // التشغيل الرئيسي
 async function main() {
     try {
-        logger.info('📦 نظام تشغيل البوت - Mr. Sokary Bot');
+        logger.info('📦 نظام تشغيل البوت - 𝐉𝐀𝐍 𝐌𝐃 𓅃');
         logger.info('========================================');
         
         // التحقق من المتطلبات
