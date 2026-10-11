@@ -13,7 +13,6 @@ const readline = require('readline')
 const { exec } = require('child_process')
 const logger = require('./utils/console')
 
-// قناة الواتساب
 const CHANNEL_JID = '120363401670228863@newsletter'
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
