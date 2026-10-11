@@ -1,11 +1,78 @@
 module.exports = {
-    command: 'فيرو',
-    description: 'يبعت صورة للصبح',
+command: 'فيرو',
+description: '『 ☠️ الاتـصـال الـسـري بـالـمـطـور فـيـرو ☠️ 』',
 
-    async execute(sock, msg) {
-        await sock.sendMessage(msg.key.remoteJid, {
-            image: { url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80" },
-            caption: "ايوا انا صاحي 😪🔫"
-        }, { quoted: msg });
-    }
+async execute(sock, msg) {
+    const from = msg.key.remoteJid;
+
+    const sent = await sock.sendMessage(from, {
+        text:
+            '╭━━━〔 ☠️ 𝐹𝐼𝑅𝑂 ☠️ 〕━━━╮\n' +
+            '┃\n' +
+            '┃ 𓆩 📡 𓆪 جـاري اخـتـراق الـصـمـت\n' +
+            '┃ ▰▱▱▱▱▱▱▱▱▱ 𝟏𝟎٪\n' +
+            '┃\n' +
+            '╰━━━━━━━━━━━━━━╯'
+    }, { quoted: msg });
+
+    const edit = async (text) => {
+        await sock.sendMessage(from, {
+            text,
+            edit: sent.key
+        });
+    };
+
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    await edit(
+        '╭━━〔 ⚡ 𝑺𝒀𝑺𝑻𝑬𝑴 ⚡ 〕━━╮\n' +
+        '┃\n' +
+        '┃ 𓆩 🔗 𓆪 تـم تـفـعـيـل مـسـار الاتـصـال\n' +
+        '┃ ▰▰▰▱▱▱▱▱▱ 𝟑𝟓٪\n' +
+        '┃\n' +
+        '╰━━━━━━━━━━━━━━╯'
+    );
+
+    await new Promise(resolve => setTimeout(resolve, 1800));
+
+    await edit(
+        '╭━━〔 🔐 𝑬𝑵𝑪𝑹𝒀𝑷𝑻𝑬𝑫 🔐 〕━━╮\n' +
+        '┃\n' +
+        '┃ 𓆩 🛡️ 𓆪 تـأمـيـن قـنـاة الاتـصـال\n' +
+        '┃ ▰▰▰▰▰▰▱▱▱▱ 𝟕𝟓٪\n' +
+        '┃\n' +
+        '╰━━━━━━━━━━━━━━╯'
+    );
+
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    await edit(
+        '╔═══『 ☠️ 𝐹𝐼𝑅𝑂☠️ 』═══╗\n' +
+        '║\n' +
+        '║ 𓆩 🚨 𓆪 تـم اسـتـقـبـال رسـالـة سـريـة\n' +
+        '║ 𓆩 📡 𓆪 الـمـصـدر : 𝐹𝐼𝑅𝑂\n' +
+        '║ 𓆩 🔒 𓆪 الـتـصـنـيـف : مـشـفـر\n' +
+        '║\n' +
+        '╠════════════════╣\n' +
+        '║\n' +
+        '║ 𓆩 ⚔️ 𓆪 إلـى حُـمـاة چـان\n' +
+        '║\n' +
+        '║ 『 ⚠️ إنـذار مـجـري  ⚠️ 』\n' +
+        '║\n' +
+        '║ اضـطـراب الـمـجـرات بـدأ بـالـفـعـل\n' +
+        '║ هـنـاك قـوة مـجـهـولـة تـحـاول\n' +
+        '║ الـسـيـطـرة عـلـى نـواة چـان\n' +
+        '║\n' +
+        '║ احـمـوا الـنـظـام ولا تـسـمـحـوا\n' +
+        '║ بـسـقـوطـه فـي أيـدي الـمـجـهـول\n' +
+        '║\n' +
+        '║ 🩸 أَنـا فـيـرو\n' +
+        '║ وقـد تـكـون دي آخـر رسـالـة أبـعـتـهـا\n' +
+        '║\n' +
+        '╠═══════════════╣\n' +
+        '║ 𓆩 👑 𝐹𝐼𝑅𝑂 × 𝑱.𝑨.𝑵 𓆪\n' +
+        '╚═══════════════╝'
+    );
+}
+
 };
