@@ -6,7 +6,7 @@ status: "on",
 name: 'قائمة الأوامر',
 command: ['اوامر'],
 category: 'info',
-description: 'عرض القائمة التعليمية',
+description: 'عرض القائمة',
 
 async execute(sock, msg) {
 try {
@@ -83,6 +83,7 @@ const from = msg.key.remoteJid;
 ┃⭔ صائد           ⇝ متاح
 ┃⭔ جيميني         ⇝ متاح
 ┃⭔ سحب            ⇝ متاح
+┃⭔ ارسل            ⇝ متاح
 شرح الأوامر هنا: 
 https://jan-md.vercel.app/
 ╔════━━━━✦━━━━━════╗
