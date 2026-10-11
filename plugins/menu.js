@@ -2,29 +2,30 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-  status: "on",
-  name: 'قائمة الأوامر',
-  command: ['اوامر'],
-  category: 'info',
-  description: 'عرض القائمة التعليمية',
+status: "on",
+name: 'قائمة الأوامر',
+command: ['اوامر'],
+category: 'info',
+description: 'عرض القائمة التعليمية',
 
-  async execute(sock, msg) {
-    try {
-      const from = msg.key.remoteJid;
+async execute(sock, msg) {
+try {
+const from = msg.key.remoteJid;
 
-      // مسار اللوجو
-      const logoPath = path.join(process.cwd(), 'Logo.jpg');
+  // مسار اللوجو
+  const logoPath = path.join(process.cwd(), 'Logo.jpg');
 
-      // مسار الصوت (OGG مع Opus)
-      const audioPath = path.join(process.cwd(), 'sounds', 'welcome.ogg');
+  // مسار الصوت OGG مع Opus
+  const audioPath = path.join(process.cwd(), 'sounds', 'welcome.ogg');
 
-      const menuText = `╔═══ ✦ ━━━━━━━━━ ═══╗
-  🩸 𝑴𝑶 𝑭𝑶𝑹𝑨1𝑶𝑵 🩸
+  const menuText = `╔═══ ✦ ━━━━━━━━━ ═══╗
+
+🩸 𝑴𝑶 𝑭𝑶𝑹𝑨1𝑶𝑵 🩸
 ╚═══ ✦ ━━━━━━━━━ ═══╝
 
-🥷 *قائمة الأوامر الرئيسية*
+🥷 قائمة الأوامر الرئيسية
 ┣━━━━━━━━✦━━━━━━━━┫
-┃ 💂‍♀️ *الأدمن و النخبة*
+┃ 💂‍♀️ الأدمن و النخبة
 ┣━━━━━━━━✦━━━━━━━━┫
 ┃⭔ عدد            ⇝ متاح
 ┃⭔ نخبة           ⇝ متاح
@@ -41,7 +42,7 @@ module.exports = {
 ┃⭔ خفض            ⇝ متاح
 
 ┣━━━━━━━━✦━━━━━━━━┫
-┃ 🧜‍♂️ *الجروبات*
+┃ 🧜‍♂️ الجروبات
 ┣━━━━━━━━✦━━━━━━━━┫
 ┃⭔ نسخ            ⇝ متاح
 ┃⭔ نسخة           ⇝ متاح
@@ -54,9 +55,13 @@ module.exports = {
 ┃⭔ فنش            ⇝ متاح
 ┃⭔ هل             ⇝ متاح
 ┃⭔ عنصرية         ⇝ متاح
+┃⭔ معلومات        ⇝ متاح
+┃⭔ مضاد_تكرار     ⇝ متاح
+┃⭔ مضاد_الروابط_ايقاف ⇝ متاح
+┃⭔ مضاد_الروابط_تشغيل ⇝ متاح
 
 ┣━━━━━━━━✦━━━━━━━━┫
-┃ 🔧 *الأدوات*
+┃ 🔧 الأدوات
 ┣━━━━━━━━✦━━━━━━━━┫
 ┃⭔ زخرف           ⇝ متاح
 ┃⭔ فيرو           ⇝ متاح
@@ -77,37 +82,57 @@ module.exports = {
 ┃⭔ فيديو          ⇝ متاح
 ┃⭔ ع              ⇝ متاح
 ┃⭔ تنظيف          ⇝ متاح
-
+┃⭔ صائد           ⇝ متاح
+┃⭔ جيميني         ⇝ متاح
+┃⭔ سحب            ⇝ متاح
+شرح الأوامر هنا: 
+https://jan-md.vercel.app/
 ╔════━━━━✦━━━━━════╗
-  🩸 𝑴𝑶 𝑭𝑶𝑹𝑨1𝑶𝑵 🩸
+🩸 𝑴𝑶 𝑭𝑶𝑹𝑨1𝑶𝑵 🩸
 ╚════━━━━✦━━━━━════╝
 `;
 
-      // بعت اللوجو + النص
-      if (fs.existsSync(logoPath)) {
-        const imageBuffer = fs.readFileSync(logoPath);
-        await sock.sendMessage(from, {
-          image: imageBuffer,
-          caption: menuText
-        }, { quoted: msg });
-      } else {
-        await sock.sendMessage(from, { text: menuText }, { quoted: msg });
-      }
+  // إرسال اللوجو مع القائمة
+  if (fs.existsSync(logoPath)) {
+    const imageBuffer = fs.readFileSync(logoPath);
 
-      // بعت الصوت كـ Voice Note (الحل لمشكلة "خلل في المقطع الصوتي")
-      if (fs.existsSync(audioPath)) {
-        const audioBuffer = fs.readFileSync(audioPath);
-        await sock.sendMessage(from, {
-          audio: audioBuffer,
-          mimetype: 'audio/ogg; codecs=opus', // ده السحر للـ Voice Note
-          ptt: true,
-          waveform: [0, 20, 40, 60, 80, 100, 80, 60, 40, 20, 0]
-        });
-      }
-
-    } catch (error) {
-      console.error('❌ خطأ في القائمة أو الصوت:', error);
-      await sock.sendMessage(msg.key.remoteJid, { text: '❌ حصل خطأ، جرب تاني لاحقًا.' }, { quoted: msg });
-    }
+    await sock.sendMessage(
+      from,
+      {
+        image: imageBuffer,
+        caption: menuText
+      },
+      { quoted: msg }
+    );
+  } else {
+    await sock.sendMessage(
+      from,
+      { text: menuText },
+      { quoted: msg }
+    );
   }
+
+  // إرسال الصوت كرسالة صوتية
+  if (fs.existsSync(audioPath)) {
+    const audioBuffer = fs.readFileSync(audioPath);
+
+    await sock.sendMessage(from, {
+      audio: audioBuffer,
+      mimetype: 'audio/ogg; codecs=opus',
+      ptt: true,
+      waveform: [0, 20, 40, 60, 80, 100, 80, 60, 40, 20, 0]
+    });
+  }
+
+} catch (error) {
+  console.error('❌ خطأ في القائمة أو الصوت:', error);
+
+  await sock.sendMessage(
+    msg.key.remoteJid,
+    { text: '❌ حصل خطأ، جرب تاني لاحقًا.' },
+    { quoted: msg }
+  );
+}
+
+}
 };
